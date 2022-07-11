@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="vkClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="vk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,8 +157,20 @@
                     <view key="view" contentMode="scaleToFill" id="Yqb-Zo-Fed">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AZS-MD-CxK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="P08-9m-Qbf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P08-9m-Qbf" firstAttribute="trailing" secondItem="AZS-MD-CxK" secondAttribute="trailing" id="JBd-zj-xpQ"/>
+                            <constraint firstItem="P08-9m-Qbf" firstAttribute="bottom" secondItem="AZS-MD-CxK" secondAttribute="bottom" id="UpR-6i-zm8"/>
+                            <constraint firstItem="AZS-MD-CxK" firstAttribute="top" secondItem="P08-9m-Qbf" secondAttribute="top" id="kg9-Hw-Xpm"/>
+                            <constraint firstItem="AZS-MD-CxK" firstAttribute="leading" secondItem="P08-9m-Qbf" secondAttribute="leading" id="uyE-ya-iVg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My groups" id="8eO-VH-SiC">
                         <barButtonItem key="rightBarButtonItem" title="All groups" id="HnG-IA-jtN">
@@ -175,14 +187,29 @@
         <!--All groups-->
         <scene sceneID="dtr-0l-dlM">
             <objects>
-                <viewController id="BLb-V8-diU" sceneMemberID="viewController">
+                <viewController id="BLb-V8-diU" customClass="AllGroupsController" customModule="vk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bKG-dL-W0o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MQM-ii-eYh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5lw-lt-RTp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MQM-ii-eYh" firstAttribute="top" secondItem="5lw-lt-RTp" secondAttribute="top" id="EcI-7j-TL4"/>
+                            <constraint firstItem="5lw-lt-RTp" firstAttribute="bottom" secondItem="MQM-ii-eYh" secondAttribute="bottom" id="P08-GO-SVc"/>
+                            <constraint firstItem="MQM-ii-eYh" firstAttribute="leading" secondItem="5lw-lt-RTp" secondAttribute="leading" id="e82-CX-OCt"/>
+                            <constraint firstItem="5lw-lt-RTp" firstAttribute="trailing" secondItem="MQM-ii-eYh" secondAttribute="trailing" id="whF-LK-UUt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All groups" id="7Rl-Wu-fgJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="MQM-ii-eYh" id="mfo-Ko-Qnf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZK-9G-gRD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
