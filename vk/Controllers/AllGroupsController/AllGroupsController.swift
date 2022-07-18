@@ -75,7 +75,7 @@ extension AllGroupsController: UITableViewDelegate {
      //   NotificationCenter.default.post(name: allGroupsRowPressed, object: groupsArray[indexPath.row])
 
         //MARK: - add groups
-        
+
         if !isContain(group: groupsArray[indexPath.row]){
             Storage.shared.myGroups.append(groupsArray[indexPath.row])
         }

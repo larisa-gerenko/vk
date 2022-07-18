@@ -31,6 +31,15 @@ class CustomTableViewCell: UITableViewCell {
         descriptionLabel.text = group.description
     }
 
+    //MARK: - configure for friends
+
+    func configure(friend: Friend) {
+        if let avatarPath = friend.avatar{
+            fotoImageView.image = UIImage(named: avatarPath)
+        }
+        nameLabel.text = friend.name
+    }
+
     //MARK: - cell reuse
     override func prepareForReuse() { // когда переиспользуется ячейка вызывается метод prepareForReuse
         super.prepareForReuse()  // при переопределении необходимо вызвать супер метод
