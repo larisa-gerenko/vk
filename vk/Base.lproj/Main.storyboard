@@ -153,7 +153,7 @@
         <!--My groups-->
         <scene sceneID="Pbv-eF-1ni">
             <objects>
-                <viewController id="cWr-u3-4Jf" sceneMemberID="viewController">
+                <viewController id="cWr-u3-4Jf" customClass="MyGroupsController" customModule="vk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yqb-Zo-Fed">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,6 +179,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="AZS-MD-CxK" id="xxv-sq-M3l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlB-CJ-6Ef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,21 +196,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MQM-ii-eYh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p4z-x6-X0s">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5lw-lt-RTp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MQM-ii-eYh" firstAttribute="top" secondItem="5lw-lt-RTp" secondAttribute="top" id="EcI-7j-TL4"/>
+                            <constraint firstItem="MQM-ii-eYh" firstAttribute="top" secondItem="p4z-x6-X0s" secondAttribute="bottom" id="KnA-BH-0VC"/>
                             <constraint firstItem="5lw-lt-RTp" firstAttribute="bottom" secondItem="MQM-ii-eYh" secondAttribute="bottom" id="P08-GO-SVc"/>
+                            <constraint firstItem="p4z-x6-X0s" firstAttribute="leading" secondItem="5lw-lt-RTp" secondAttribute="leading" id="cbr-Sh-DQ5"/>
                             <constraint firstItem="MQM-ii-eYh" firstAttribute="leading" secondItem="5lw-lt-RTp" secondAttribute="leading" id="e82-CX-OCt"/>
+                            <constraint firstItem="p4z-x6-X0s" firstAttribute="trailing" secondItem="5lw-lt-RTp" secondAttribute="trailing" id="sIF-on-D7F"/>
                             <constraint firstItem="5lw-lt-RTp" firstAttribute="trailing" secondItem="MQM-ii-eYh" secondAttribute="trailing" id="whF-LK-UUt"/>
+                            <constraint firstItem="p4z-x6-X0s" firstAttribute="top" secondItem="5lw-lt-RTp" secondAttribute="top" id="xbQ-TH-Xlt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All groups" id="7Rl-Wu-fgJ"/>
                     <connections>
+                        <outlet property="searchBar" destination="p4z-x6-X0s" id="XpS-q1-QtN"/>
                         <outlet property="tableView" destination="MQM-ii-eYh" id="mfo-Ko-Qnf"/>
                     </connections>
                 </viewController>
