@@ -14,6 +14,7 @@ class FriendsGroupController: UIViewController {
     
     var friendsArray = [Friend]()
     let reuseIdentifier = "reuseIdentifier"
+    let fromFriendsToGallery = "fromFriendsToGallery"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,10 @@ class FriendsGroupController: UIViewController {
         let friend1 = Friend(name: "friend1", avatar: "1", photos: ["1","2"])
         friendsArray.append(friend1)
 
-        let friend2 = Friend(name: "friend2", avatar: "2", photos: ["1","2"])
+        let friend2 = Friend(name: "friend2", avatar: "2", photos: ["1","5"])
         friendsArray.append(friend2)
 
-        let friend3 = Friend(name: "friend3", avatar: "3", photos: ["1","2"])
+        let friend3 = Friend(name: "friend3", avatar: "3", photos: ["3","4"])
         friendsArray.append(friend3)
 
         let friend4 = Friend(name: "friend4", avatar: "4", photos: ["1","2"])
@@ -40,6 +41,16 @@ class FriendsGroupController: UIViewController {
 
         let friend5 = Friend(name: "friend5", avatar: "5", photos: ["1","2"])
         friendsArray.append(friend5)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == fromFriendsToGallery {
+            guard let destinationVC = segue.destination as? GalleryViewController,
+                    let photoArray = sender as? [String]
+            else {return}
+
+            destinationVC.photoArray = photoArray
+        }
     }
 
 }
@@ -52,6 +63,7 @@ extension FriendsGroupController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected \(friendsArray[indexPath.row].name)")
+        performSegue(withIdentifier: fromFriendsToGallery, sender: friendsArray[indexPath.row].photos)
     }
 
 }
